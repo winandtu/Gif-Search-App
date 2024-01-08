@@ -9,13 +9,13 @@ export const GifApp = () => {
 
   //Función para agregar categoria
 
-  const addCategorie = ()=>{
+  const addCategorie = (newCategorie)=>{
     
-    const newCategorie='Naruto';
+    //const newCategorie='Naruto';
     setCategories([newCategorie, ...categories ]) //hace una copia de las categorias anteriores y agrega una nueva
     //Segunda forma
     //setCategories(cat =>[...cat, newCategorie])
-    console.log('Se ha agregado algo')
+    console.log(newCategorie)
     
     
   }
@@ -26,13 +26,15 @@ export const GifApp = () => {
     <h1>GifApp</h1>
 
     {/**Input */}
-    <AddCategory/>
+    <AddCategory 
+    
+    //setCategories={setCategories} /> //forma 1
+    onNewCategory={addCategorie}/>
     {/**Agregar categorias por medio de un botón */}
 
-    <button onClick={addCategorie}>Agregar Categoria</button>
 
     {/**Lista de las categorias */}
-    <ol>
+      <ol>
       {categories.map(category=>{
         return <li key={category}>{category}</li>
       })}
