@@ -1,15 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 import { AddCategory } from './components/AddCategory'
+import { Gif } from './components/Gif'
 
 
 export const GifApp = () => {
 
-  const [categories, setCategories] = useState(['One punch man', 'Dragon Ball'])
+  const [categories, setCategories] = useState(['One punch man'])
 
   //Función para agregar categoria
 
   const addCategorie = (newCategorie)=>{
+
+    //Para que se pueda hacer busquedas de la misma categoria
+    if(categories.includes(newCategorie)){ //Si la categoria existe, no haga nada. Y si no existe la inserta.
+      return;
+    }
     
     //const newCategorie='Naruto';
     setCategories([newCategorie, ...categories ]) //hace una copia de las categorias anteriores y agrega una nueva
@@ -34,11 +40,11 @@ export const GifApp = () => {
 
 
     {/**Lista de las categorias */}
-      <ol>
+      
       {categories.map(category=>{
-        return <li key={category}>{category}</li>
+        return <Gif key={category} category={category}/>
       })}
-    </ol>
+    
     </>
   )
 }

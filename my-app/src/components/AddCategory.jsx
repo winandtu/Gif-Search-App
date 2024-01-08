@@ -36,7 +36,7 @@ export const AddCategory = (props) => {
 
   return (
     <>
-    <h4>AddCategory</h4>
+    <h4>Añadir Categoria</h4>
 
     <form onSubmit={(e)=> actualizarForm(e)}>
         <input
